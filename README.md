@@ -20,21 +20,34 @@
 
 A comprehensive **real-time drowsiness detection system** that combines cutting-edge computer vision with a modern web-based dashboard. Designed to prevent accidents by monitoring driver alertness in real-time using advanced facial recognition and eye-tracking algorithms.
 
-┌─────────────────────────────────────────────────────────────┐
-│                 DROWSINESS DETECTION SYSTEM                 │
-├──────────────────────────────┬──────────────────────────────┤
-│       DETECTION ENGINE       │        WEB DASHBOARD         │
-│  ├─ OpenCV                   │  ├─ User Management          │
-│  ├─ MediaPipe                │  ├─ Driver Records           │
-│  ├─ dlib (68 pts)            │  ├─ Detection Logs           │
-│  ├─ EAR Algorithm            │  └─ Real-time Monitoring     │
-│  └─ Alerts (SMS/API)         │                              │
-├──────────────────────────────┴──────────────────────────────┤
-│             SQLITE DATABASE (Persistent Storage)            │
-│  ┌───────────┬─────────────┬───────────────────┬──────────┐ │
-│  │   Users   │   Drivers   │ Detection Records │ Sessions │ │
-│  └───────────┴─────────────┴───────────────────┴──────────┘ │
-└─────────────────────────────────────────────────────────────┘
+┌───────────────────────────┐
+│        CAMERA INPUT       │
+└─────────────┬─────────────┘
+              │
+              ▼
+┌───────────────────────────┐
+│    DETECTION ENGINE       │
+│ ─ OpenCV                  │
+│ ─ MediaPipe               │
+│ ─ dlib (68 Landmarks)     │
+│ ─ EAR Calculation         │
+└─────────────┬─────────────┘
+              │
+     ┌────────┴────────┐
+     ▼                 ▼
+┌──────────────┐ ┌──────────────┐
+│ ALERT SYSTEM │ │ SQLITE DB    │
+│ SMS / API    │ │ Data Storage │
+└──────────────┘ └──────┬───────┘
+                        │
+                        ▼
+              ┌──────────────────┐
+              │  WEB DASHBOARD   │
+              │ • Users          │
+              │ • Drivers        │
+              │ • Logs           │
+              │ • Monitoring     │
+              └──────────────────┘
 
 ---
 
