@@ -20,25 +20,21 @@
 
 A comprehensive **real-time drowsiness detection system** that combines cutting-edge computer vision with a modern web-based dashboard. Designed to prevent accidents by monitoring driver alertness in real-time using advanced facial recognition and eye-tracking algorithms.
 
-### 🏗️ System Architecture
-
-```
 ┌─────────────────────────────────────────────────────────────┐
-│                    DROWSINESS DETECTION SYSTEM               │
-├──────────────────────┬──────────────────────────────────────┤
-│                      │                                        │
-│  DETECTION ENGINE    │        WEB DASHBOARD                  │
-│  ├─ OpenCV          │        ├─ User Management            │
-│  ├─ MediaPipe       │        ├─ Driver Records             │
-│  ├─ dlib (68pts)    │        ├─ Detection Logs             │
-│  ├─ EAR Algorithm   │        └─ Real-time Monitoring       │
-│  └─ Alerts (SMS)    │                                        │
-│                      │                                        │
-├──────────────────────┴──────────────────────────────────────┤
-│            SQLITE DATABASE (Persistent Storage)             │
-│  ├─ Users  ├─ Drivers  ├─ Detection Records  └─ Sessions  │
+│                 DROWSINESS DETECTION SYSTEM                 │
+├──────────────────────────────┬──────────────────────────────┤
+│       DETECTION ENGINE       │        WEB DASHBOARD         │
+│  ├─ OpenCV                   │  ├─ User Management          │
+│  ├─ MediaPipe                │  ├─ Driver Records           │
+│  ├─ dlib (68 pts)            │  ├─ Detection Logs           │
+│  ├─ EAR Algorithm            │  └─ Real-time Monitoring     │
+│  └─ Alerts (SMS/API)         │                              │
+├──────────────────────────────┴──────────────────────────────┤
+│             SQLITE DATABASE (Persistent Storage)            │
+│  ┌───────────┬─────────────┬───────────────────┬──────────┐ │
+│  │   Users   │   Drivers   │ Detection Records │ Sessions │ │
+│  └───────────┴─────────────┴───────────────────┴──────────┘ │
 └─────────────────────────────────────────────────────────────┘
-```
 
 ---
 
