@@ -20,34 +20,31 @@
 
 A comprehensive **real-time drowsiness detection system** that combines cutting-edge computer vision with a modern web-based dashboard. Designed to prevent accidents by monitoring driver alertness in real-time using advanced facial recognition and eye-tracking algorithms.
 
-┌───────────────────────────┐
-│        CAMERA INPUT       │
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│    DETECTION ENGINE       │
-│ ─ OpenCV                  │
-│ ─ MediaPipe               │
-│ ─ dlib (68 Landmarks)     │
-│ ─ EAR Calculation         │
-└─────────────┬─────────────┘
-              │
-     ┌────────┴────────┐
-     ▼                 ▼
-┌──────────────┐ ┌──────────────┐
-│ ALERT SYSTEM │ │ SQLITE DB    │
-│ SMS / API    │ │ Data Storage │
-└──────────────┘ └──────┬───────┘
-                        │
-                        ▼
-              ┌──────────────────┐
-              │  WEB DASHBOARD   │
-              │ • Users          │
-              │ • Drivers        │
-              │ • Logs           │
-              │ • Monitoring     │
-              └──────────────────┘
+## 🏗️ System Architecture
+
+```mermaid
+flowchart TD
+    A[Camera Input]
+
+    A --> B[Detection Engine]
+
+    B --> C[OpenCV]
+    B --> D[MediaPipe]
+    B --> E[dlib 68 Landmarks]
+    B --> F[EAR Calculation]
+
+    F --> G[Alert System]
+    F --> H[SQLite Database]
+
+    G --> I[SMS / API Alerts]
+
+    H --> J[Web Dashboard]
+
+    J --> K[Users]
+    J --> L[Drivers]
+    J --> M[Detection Logs]
+    J --> N[Real-Time Monitoring]
+```
 
 ---
 
