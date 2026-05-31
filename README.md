@@ -680,9 +680,3 @@ User Responsibility:
 [↑ Back to Top](#top)
 
 </div>
-
-<<<<<<< HEAD
-##
-=======
-##
->>>>>>> 606d74a691e675d8987262161c976272b18056c8
