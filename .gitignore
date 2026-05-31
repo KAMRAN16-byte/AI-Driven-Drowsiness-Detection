@@ -1,0 +1,19 @@
+venv/
+__pycache__/
+*.pyc
+.idea/
+.env
+
+# Generated files
+Dashboard/static/uploads/
+*.csv
+
+# Dlib model
+shape_predictor_68_face_landmarks.dat
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+Desktop.ini

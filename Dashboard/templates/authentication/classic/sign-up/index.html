@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html class="h-full" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="en">
+ <head><base href="../../../../../">
+  <title>
+   Metronic - Tailwind CSS Sign Up
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="follow, index" name="robots"/>
+  <link href="https://127.0.0.1:8001/metronic-tailwind-html/demo8/authentication/classic/sign-up/index.html" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="Sign up page, powered by Tailwind CSS" name="description"/>
+  <meta content="@keenthemes" name="twitter:site"/>
+  <meta content="@keenthemes" name="twitter:creator"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Metronic - Tailwind CSS Sign Up" name="twitter:title"/>
+  <meta content="Sign up page, powered by Tailwind CSS" name="twitter:description"/>
+  <meta content="/static/assets/media/app/og-image.png" name="twitter:image"/>
+  <meta content="https://127.0.0.1:8001/metronic-tailwind-html/demo8/authentication/classic/sign-up/index.html" property="og:url"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="website" property="og:type"/>
+  <meta content="@keenthemes" property="og:site_name"/>
+  <meta content="Metronic - Tailwind CSS Sign Up" property="og:title"/>
+  <meta content="Sign up page, powered by Tailwind CSS" property="og:description"/>
+  <meta content="/static/assets/media/app/og-image.png" property="og:image"/>
+  <link href="/static/assets/media/app/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+  <link href="/static/assets/media/app/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/static/assets/media/app/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/static/assets/media/app/favicon.ico" rel="shortcut icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="/static/assets/vendors/apexcharts/apexcharts.css" rel="stylesheet"/>
+  <link href="/static/assets/vendors/keenicons/styles.bundle.css" rel="stylesheet"/>
+  <link href="/static/assets/css/styles.css" rel="stylesheet"/>
+  
+  <style>
+   /* Apply red border to the input control when its parent has the error state class */
+   .kt-form-error-state .kt-input-control,
+   .kt-form-error-state .kt-input {
+       border-color: #f87171 !important; /* Tailwind's red-500 */
+   }
+   /* Ensure the checkbox label text/link text is red on error */
+   .kt-form-error-state .kt-checkbox-label,
+   .kt-form-error-state .kt-checkbox-label a {
+       color: #ef4444 !important; /* Tailwind's red-500 */
+   }
+   /* Ensure error message text is clearly red */
+   .kt-form-error {
+        color: #ef4444 !important; /* Ensures error text is always red */
+   }
+  </style>
+ </head>
+ <body class="antialiased flex h-full text-base text-foreground bg-background">
+  <script>
+   const defaultThemeMode = 'light'; // light|dark|system
+			let themeMode;
+
+			if (document.documentElement) {
+				if (localStorage.getItem('kt-theme')) {
+					themeMode = localStorage.getItem('kt-theme');
+				} else if (
+					document.documentElement.hasAttribute('data-kt-theme-mode')
+				) {
+					themeMode =
+						document.documentElement.getAttribute('data-kt-theme-mode');
+				} else {
+					themeMode = defaultThemeMode;
+				}
+
+				if (themeMode === 'system') {
+					themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+						? 'dark'
+						: 'light';
+				}
+
+				document.documentElement.classList.add(themeMode);
+			}
+  </script>
+  <style>
+   .page-bg {
+			background-image: url('/static/assets/media/images/2600x1200/bg-10.png');
+		}
+		.dark .page-bg {
+			background-image: url('/static/assets/media/images/2600x1200/bg-10-dark.png');
+		}
+  </style>
+  <div class="flex items-center justify-center grow bg-center bg-no-repeat page-bg">
+   <div class="kt-card max-w-[370px] w-full">
+    <form action="/sign-up" method="post"
+      class="kt-card-content flex flex-col gap-5 p-10"
+      id="sign_up_form">
+
+    {{ form.hidden_tag() }}
+
+    <div class="text-center mb-2.5">
+        <h3 class="text-lg font-medium text-mono leading-none mb-2.5">
+            Sign up
+        </h3>
+        <div class="flex items-center justify-center">
+            <span class="text-sm text-secondary-foreground me-1.5">
+                Already have an Account?
+            </span>
+            <a class="text-sm link"
+               href="html/demo8/authentication/classic/sign-in.html">
+               Sign In
+            </a>
+        </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+        <span class="border-t border-border w-full"></span>
+        <span class="text-xs text-secondary-foreground uppercase">or</span>
+        <span class="border-t border-border w-full"></span>
+    </div>
+
+    <div class="flex flex-col gap-1" data-kt-validate="username">
+      <label class="kt-form-label font-normal text-mono">
+       Name
+      </label>
+      {{ form.username(id='username_input', class='kt-input') }}
+      <div data-field="username" class="kt-form-error text-sm mt-1 hidden"></div>
+      {% for e in form.username.errors %}
+          <div class="kt-form-error text-sm mt-1">{{ e }}</div>
+      {% endfor %}
+     </div>
+
+    <div class="flex flex-col gap-1" data-kt-validate="email">
+        <label class="kt-form-label font-normal text-mono">Email</label>
+        {{ form.email(id='email_input', class='kt-input') }}
+        <div data-field="email" class="kt-form-error text-sm mt-1 hidden"></div>
+        {% for e in form.email.errors %}
+            <div class="kt-form-error text-sm mt-1">{{ e }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="flex flex-col gap-1" data-kt-validate="password">
+        <label class="kt-form-label font-normal text-mono">Password</label>
+        <div class="kt-input" data-kt-toggle-password="true">
+            {{ form.password(id='password_input', class='kt-input-control') }} 
+            <button type="button"
+                class="kt-btn kt-btn-sm kt-btn-ghost kt-btn-icon bg-transparent! -me-1.5"
+                data-kt-toggle-password-trigger="true">
+                <span class="kt-toggle-password-active:hidden">
+                    <i class="ki-filled ki-eye text-muted-foreground"></i>
+                </span>
+                <span class="hidden kt-toggle-password-active:block">
+                    <i class="ki-filled ki-eye-slash text-muted-foreground"></i>
+                </span>
+            </button>
+        </div>
+        <div data-field="password" class="kt-form-error text-sm hidden"></div>
+        {% for e in form.password.errors %}
+            <div class="kt-form-error text-sm">{{ e }}</div>
+        {% endfor %}
+    </div>
+
+    <div class="flex flex-col gap-1" data-kt-validate="confirm_password">
+        <label class="kt-form-label font-normal text-mono">Confirm Password</label>
+        <div class="kt-input" data-kt-toggle-password="true">
+            {{ form.confirm_password(id='confirm_password_input', class='kt-input-control') }} <button type="button"
+                class="kt-btn kt-btn-sm kt-btn-ghost kt-btn-icon bg-transparent! -me-1.5"
+                data-kt-toggle-password-trigger="true">
+                <span class="kt-toggle-password-active:hidden">
+                    <i class="ki-filled ki-eye text-muted-foreground"></i>
+                </span>
+                <span class="hidden kt-toggle-password-active:block">
+                    <i class="ki-filled ki-eye-slash text-muted-foreground"></i>
+                </span>
+            </button>
+        </div>
+        <div data-field="confirm_password" class="kt-form-error text-sm hidden"></div>
+        {% for e in form.confirm_password.errors %}
+            <div class="kt-form-error text-sm">{{ e }}</div>
+        {% endfor %}
+    </div>
+
+    <label class="kt-checkbox-group" data-kt-validate="accept_terms">
+        {{ form.accept_terms(id='accept_terms_input') }}
+        <span class="kt-checkbox-label">
+            I accept
+            <a class="text-sm link" href="#">Terms & Conditions</a>
+        </span>
+    </label>
+    <div data-field="accept_terms" class="kt-form-error text-sm hidden"></div>
+    {% for e in form.accept_terms.errors %}
+        <div class="kt-form-error text-sm">{{ e }}</div>
+    {% endfor %}
+
+    {{ form.submit(id='submit_btn') }}
+</form>
+
+   </div>
+  </div>
+  <script src="/static/assets/js/core.bundle.js">
+  </script>
+  <script src="/static/assets/vendors/ktui/ktui.min.js">
+  </script>
+  <script src="/static/assets/vendors/apexcharts/apexcharts.min.js">
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('sign_up_form');
+        
+        // Define Inputs
+        const usernameInput = document.getElementById('username_input');
+        const emailInput = document.getElementById('email_input');
+        const passwordInput = document.getElementById('password_input');
+        const confirmPasswordInput = document.getElementById('confirm_password_input');
+        const termsCheckbox = document.getElementById('accept_terms_input');
+        const submitButton = document.getElementById('submit_btn');
+
+        // REGEX DEFINITIONS
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // Letters only regex (Start to end must be A-Z or a-z)
+        const usernameRegex = /^[A-Za-z]+$/; 
+
+        // --- Server Side Error Hiding Logic ---
+        
+        // Hide server email errors on input
+        emailInput.addEventListener('input', function() {
+            const serverErrors = form.querySelectorAll('[data-kt-validate="email"] .kt-form-error:not([data-field])');
+            serverErrors.forEach(error => error.classList.add('hidden'));
+        });
+
+        // Hide server username errors on input
+        usernameInput.addEventListener('input', function() {
+            const serverErrors = form.querySelectorAll('[data-kt-validate="username"] .kt-form-error:not([data-field])');
+            serverErrors.forEach(error => error.classList.add('hidden'));
+        });
+
+
+        /**
+         * Shows an error message for a specific field and applies error state CSS.
+         */
+        function showError(fieldName, message) {
+            const errorDiv = form.querySelector(`[data-field="${fieldName}"]`);
+            const validateContainer = form.querySelector(`[data-kt-validate="${fieldName}"]`);
+            
+            if (errorDiv) {
+                errorDiv.textContent = message;
+                errorDiv.classList.remove('hidden');
+                // Hide any visible server-side errors if a JS error is shown
+                form.querySelectorAll(`[data-kt-validate="${fieldName}"] .kt-form-error:not([data-field])`).forEach(e => e.classList.add('hidden'));
+            }
+            if (validateContainer) {
+                validateContainer.classList.add('kt-form-error-state'); 
+            }
+        }
+
+        /**
+         * Hides the error message for a specific field and removes error state CSS.
+         */
+         function hideError(fieldName) {
+            const errorDiv = form.querySelector(`[data-field="${fieldName}"]`);
+            const validateContainer = form.querySelector(`[data-kt-validate="${fieldName}"]`);
+
+            if (errorDiv) {
+                errorDiv.textContent = '';
+                errorDiv.classList.add('hidden');
+            }
+            if (validateContainer) {
+                validateContainer.classList.remove('kt-form-error-state'); 
+            }
+        }
+
+        /**
+         * Runs the full validation check (treating all fields as required for button enablement).
+         */
+        function validateFormWithoutRealTimeCheck() {
+             let isValid = true;
+
+            // 1. Username Check
+            if (!usernameInput.value.trim() || 
+                usernameInput.value.trim().length < 3 || 
+                !usernameRegex.test(usernameInput.value.trim())) {
+                isValid = false;
+            }
+
+            // 2. Email Check
+            if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+                isValid = false;
+            }
+
+            // 3. Password Check
+            if (!passwordInput.value || passwordInput.value.length < 6) {
+                isValid = false;
+            }
+
+            // 4. Confirm Password Check
+            if (!confirmPasswordInput.value || confirmPasswordInput.value !== passwordInput.value) {
+                isValid = false;
+            }
+
+            // 5. Terms Check
+            if (!termsCheckbox.checked) {
+                isValid = false;
+            }
+            return isValid;
+        }
+
+        /**
+         * Validates all form fields and returns true if all are valid.
+         * @param {boolean} isRealTime - If true, only check for formatting/matching, not required-field emptiness.
+         * @returns {boolean}
+         */
+        function validateForm(isRealTime = false) {
+            let isValid = true;
+
+            // 1. Validate Username
+            const userVal = usernameInput.value.trim();
+            if (!userVal && !isRealTime) {
+                isValid = false;
+                showError('username', 'Name is required.');
+            } else if (userVal && userVal.length < 3) {
+                isValid = false;
+                showError('username', 'Name must be at least 3 characters.');
+            } else if (userVal && !usernameRegex.test(userVal)) {
+                isValid = false;
+                showError('username', 'Name must contain only letters.');
+            } else {
+                hideError('username');
+            }
+
+            // 2. Validate Email
+            if (!emailInput.value.trim() && !isRealTime) {
+                isValid = false;
+                showError('email', 'Email is required.');
+            } else if (emailInput.value.trim() && !emailRegex.test(emailInput.value.trim())) {
+                isValid = false;
+                showError('email', 'Enter a valid email address.');
+            } else {
+                hideError('email');
+            }
+
+            // 3. Validate Password
+            if (!passwordInput.value && !isRealTime) {
+                isValid = false;
+                showError('password', 'Password is required.');
+            } else if (passwordInput.value && passwordInput.value.length < 6) {
+                isValid = false;
+                showError('password', 'Password must be at least 6 characters.');
+            } else {
+                hideError('password');
+            }
+
+            // 4. Validate Confirm Password
+            const passwordValue = passwordInput.value;
+            const confirmPasswordValue = confirmPasswordInput.value;
+            
+            if (!confirmPasswordValue && !isRealTime) {
+                isValid = false;
+                showError('confirm_password', 'Confirm your password.');
+            } else if (confirmPasswordValue && passwordValue !== confirmPasswordValue) {
+                isValid = false;
+                showError('confirm_password', 'Passwords do not match.');
+            } else {
+                hideError('confirm_password');
+            }
+
+            // 5. Validate Terms
+            if (!termsCheckbox.checked) {
+                if (!isRealTime) {
+                    isValid = false;
+                    showError('accept_terms', 'You must accept the terms.');
+                }
+            } else {
+                hideError('accept_terms');
+            }
+
+            // Enable/Disable submit button based on full validation
+            submitButton.disabled = !(validateFormWithoutRealTimeCheck());
+
+            return isValid;
+        }
+
+
+        // --- Event Listeners for Real-Time Feedback ---
+
+        // Input events (typing)
+        usernameInput.addEventListener('input', () => validateForm(true));
+        emailInput.addEventListener('input', () => validateForm(true));
+        passwordInput.addEventListener('input', () => {
+            validateForm(true);
+            // Re-validate confirm password whenever password changes
+            if (confirmPasswordInput.value) {
+                validateForm(true);
+            }
+        });
+        confirmPasswordInput.addEventListener('input', () => validateForm(true));
+
+        // Change event (checkbox)
+        termsCheckbox.addEventListener('change', () => validateForm(true));
+
+        // Blur events (field loses focus - forces a complete check)
+        usernameInput.addEventListener('blur', () => validateForm(false));
+        emailInput.addEventListener('blur', () => validateForm(false));
+        passwordInput.addEventListener('blur', () => validateForm(false));
+        confirmPasswordInput.addEventListener('blur', () => validateForm(false));
+
+        // Final validation on form submission
+        form.addEventListener('submit', function(event) {
+            // Re-run validation without 'isRealTime' flag to catch empty required fields
+            if (!validateForm(false)) { 
+                event.preventDefault(); 
+            }
+        });
+
+        // Initial check to set the submit button's initial disabled state
+        validateForm(true); 
+    });
+  </script>
+  </body>
+</html>
