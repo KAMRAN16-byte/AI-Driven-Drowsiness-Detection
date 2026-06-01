@@ -10,7 +10,18 @@
 
 **Real-time AI-powered drowsiness detection system with web dashboard**
 
-[🌐 Live Demo](#) • [📖 Documentation](#documentation) • [🚀 Quick Start](#quick-start) • [🤝 Contributing](#contributing)
+ • [📖 Documentation](#documentation) • [🚀 Quick Start](#quick-start) • [🤝 Contributing](#contributing)
+ ## 🎬 Project Demonstration
+
+<p align="center">
+  <a href="https://youtu.be/G5bO6TxBx7Q">
+    <img src="https://img.youtube.com/vi/G5bO6TxBx7Q/maxresdefault.jpg" width="800">
+  </a>
+</p>
+
+<p align="center">
+  <b>▶️ Click the thumbnail to watch the video</b>
+</p>
 
 </div>
 
