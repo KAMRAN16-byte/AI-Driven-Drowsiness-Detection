@@ -455,17 +455,6 @@ def send_drowsiness_alert():
     return message.sid
 ```
 
-### 🎛️ EAR Threshold Tuning
-
-Modify `Drowsiness/EAR_cal.py`:
-
-```python
-# Adjust these values based on your needs
-EAR_THRESHOLD = 0.15      # Lower = More Sensitive
-CONSECUTIVE_FRAMES = 20   # Frames before alert
-FPS = 30                  # Frames per second
-```
-
 ### 🗄️ Database Configuration
 
 Edit `Dashboard/app.py`:
